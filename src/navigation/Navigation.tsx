@@ -8,7 +8,8 @@ import { navigationRef } from '@utils/NavigationUtils'
 //screens
 //auth
 import SplashScreen from '@features/auth/SplashScreen'
-
+import CustomerLogin from '@features/auth/CustomerLogin'
+import DeliveryLogin from '@features/auth/DeliveryLogin'
 
 
 const Stack = createNativeStackNavigator();
@@ -25,7 +26,30 @@ const Navigation: FC = () => {
             headerShown: false
         }}
       >
-        <Stack.Screen name="SplashScreen" component={SplashScreen} />
+        <Stack.Screen 
+          name="SplashScreen" 
+          component={SplashScreen}
+          options={{
+            headerShown: false,
+            animation: 'slide_from_right',
+          }} 
+        />
+        <Stack.Screen 
+          name="CustomerLogin" 
+          component={CustomerLogin}
+          options={{
+            headerShown: false,
+            animation: 'slide_from_right',
+          }} 
+        />
+        <Stack.Screen 
+          name="DeliveryLogin" 
+          component={DeliveryLogin}
+          options={{
+            headerShown: false,
+            animation: 'slide_from_right',
+          }} 
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )
