@@ -1,11 +1,13 @@
-import { StyleSheet, Text, View, StatusBar } from 'react-native'
+import { StyleSheet, Text, View, StatusBar, SafeAreaView } from 'react-native'
 import React, { FC } from 'react'
 import { GestureHandlerRootView, PanGestureHandler, State } from 'react-native-gesture-handler'
 import CustomSafeAeraView from '@components/global/CustomSafeAeraView'
 import ProductSlider from '@components/login/ProductSlider'
 import { Colors } from '@utils/Constants'
-import { SafeAreaView } from 'react-native-safe-area-context'
+// import { SafeAreaView } from 'react-native-safe-area-context'
 import { screenHeight } from '@utils/Scaling'
+import CustomText from '@components/UI/CustomText'
+import { RFValue } from 'react-native-responsive-fontsize'
 
 const CustomerLogin: FC = () => {
   return (
@@ -14,14 +16,16 @@ const CustomerLogin: FC = () => {
       <View style={styles.container}>
         <CustomSafeAeraView >
           <ProductSlider />
-          {/* <Text style={styles.text}>Login</Text> */}
-          <View style={styles.footer}>
-            {/* <SafeAreaView /> */}
-            <Text style={styles.text}>Login</Text>
-          </View>
         </CustomSafeAeraView>
         
       </View>
+
+      
+      <View style={styles.footer}>
+            <SafeAreaView/>
+            <CustomText fontSize={RFValue(6)}>By Continuing, you agree to our Terms and Conditions and Privacy Policy</CustomText>
+            <SafeAreaView/>
+          </View>
 
     </GestureHandlerRootView>
   )
@@ -35,17 +39,19 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background
   },
   footer: {
-    height: screenHeight * 0.5,
-    borderTopWidth: 0.8,
-    borderTopColor: Colors.border,
-    paddingBottom: 10,
+    // height: screenHeight * 0.5,
+    // borderTopWidth: 0.8,
+    // borderTopColor: Colors.border,
+    paddingBottom: 20,
+    // paddingVertical: 10,
+    // paddingHorizontal: 10,
     zIndex: 22,
     position: 'absolute',
     bottom: screenHeight * 0.01,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 10,
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.backgroundSecondary,
     width: '100%',
   },
   text: {
@@ -53,3 +59,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 })
+
+
+//01:31
